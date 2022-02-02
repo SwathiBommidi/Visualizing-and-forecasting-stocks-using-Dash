@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+<meta content="utf-8" http-equiv="encoding">
+<title>Dash Viz</title>
+</head>
+<body>
+
+<h2>The Stock Viewer</h2>
+<p><label for="stock">Choose a stock symbol:</label>
+  <select name="stock" id="stock" onchange="change()">
+    <option value="1">ITC</option>
+    <option value="2">TCS</option>
+  </select></p>
+
+<object id="page" type="text/html" data="http://127.0.0.1:8081/" width="1800px" height="1200px" />
+
+<p id="demo"></p>
+<script>
+function change() {
+  var x = document.getElementById("stock").value;
+  var new_url = 'http://127.0.0.1:8080/';
+  if(x==1){
+	new_url = 'http://127.0.0.1:8080/';
+  }
+  else{
+	new_url = 'http://127.0.0.1:8081';
+  }
+  
+  document.getElementById("demo").innerHTML = "You selected: " + new_url;
+  document.getElementById("page").setAttribute('data', new_url);
+  
+}
+</script>
+</body>
+</html>
